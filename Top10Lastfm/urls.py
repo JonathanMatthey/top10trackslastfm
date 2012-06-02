@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'Top10Lastfm.views.home', name='home'),
+    url(r'^$', 'toptracks.views.index', name='index'),
     # url(r'^Top10Lastfm/', include('Top10Lastfm.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

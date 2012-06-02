@@ -1,4 +1,7 @@
 # Django settings for Top10Lastfm project.
+import os
+def relative_project_path(*x):
+    return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -109,6 +112,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    relative_project_path('../templates/')
 )
 
 INSTALLED_APPS = (

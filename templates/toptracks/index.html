@@ -1,0 +1,10 @@
+{% if latest_track_list %}
+    <ul>
+    {% for track in latest_track_list %}
+        <li><a href="/track/{{ track.id }}/">{{ track }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tracks are available.</p>
+{% endif %}
+

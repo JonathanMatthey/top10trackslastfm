@@ -1,8 +1,5 @@
 from django.db import models
 
-# class Artist(models.Model):
-# 	name = models.CharField(max_length=200)
-
 class Track(models.Model):
     title = models.CharField(max_length=200)
     rank = models.IntegerField()
@@ -11,4 +8,4 @@ class Track(models.Model):
     week = models.IntegerField()
     year = models.IntegerField()
     def __unicode__(self):
-        return str(self.year) + "." + str(self.week) +  ": " + str(self.rank) + " - " + self.artist_name + " - " + self.title
+        return str(self.year) + "." + str(self.week) +  ": " + str(self.rank) + " - " + self.artist_name + " - " + self.title + " - " + str(self.listener_count) + " listeners" 
