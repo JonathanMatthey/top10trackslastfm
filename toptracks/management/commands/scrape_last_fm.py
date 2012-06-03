@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 # from minnpost.dockets.models import Case
-from toptracks.models import Track
+from toptracks.models import Track, Rank
 
 import requests
 import lxml
@@ -39,10 +39,12 @@ class Command(BaseCommand):
             if len(artist_and_title) > 1:
                 artist_val = artist_and_title[0].strip()
                 title_val = artist_and_title[1].strip()
-
-            t = Track.objects.get_or_create(artist_name=artist_val, rank=int(rank_val), title=title_val,listener_count=listener_count_val, week=week_val, year=year_val)
-            print "Added " + str(t[0])
-
+            track = Track.objects.get_or_create(artist_name=artist_val, title=title_val)
+            rank = Rank.objects.get_or_create(track=track[0], position=rank_val,week=week_val,year=year_val,listener_count=listener_count_val)
+            # t = Track.objects.get_or_create(artist_name=artist_val, rank=int(rank_val), title=title_val,listener_count=listener_count_val, week=week_val, year=year_val)
+            print "Added track:  " + str(track[0])
+            print "at position: " + str(rank[0])
+            
 now = time.gmtime(time.time())
 
 def convertTime(t):

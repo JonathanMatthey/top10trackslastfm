@@ -1,10 +1,87 @@
-{% if latest_track_list %}
-    <ul>
-    {% for track in latest_track_list %}
-        <li><a href="/track/{{ track.id }}/">{{ track }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No tracks are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/media/style.css" />
+    <title>Top Tracks on Last.fm</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+        all_tracks_json = '{{ tracks_json }}';
+        all_weeks = {{all_weeks}};
+        // total_listeners = {{total_listeners}};
+        console.log(all_weeks);
+        // console.log(total_listeners);
+        total_listeners_x_axis = {{total_listeners_x_axis}};
+        total_listeners_series = {{total_listeners_series}};
+
+        artist_listeners_x_axis = {{artist_listeners_x_axis}};
+        artist_listeners_series = {{artist_listeners_series}};
+
+        qweek = {{qweek}};
+
+        billboard_listeners_series = {{billboard_listeners_series}};
+        // billboard = {{billboard}};
+	</script>
+    <script type="text/javascript" src="/media/js/main.js"></script>
+</head>
+
+<body>
+<script src="/media/js/highcharts.js"></script>
+<script src="/media/js/modules/exporting.js"></script>
+{% load humanize %}
+
+<div id="wrapper">
+    <h1>Last.fm Analytics Tool</h1>
+    <form id="form1" action="" method="get">
+        year <select name="year" id="year">
+            <option value="2012">2012</option>
+        </select>
+        {% if all_weeks %}
+
+        &nbsp;&nbsp;week <select name="week" id="week">
+            {% for week in all_weeks %}
+                <option value="{{week}}" >{{week}}</option>
+            {% endfor %}
+        </select>
+        {% else %}
+            <p> Error - week count is 0.</p>
+        {% endif %}
+    </form>
+    <div id="billboard">
+        {% if billboard %}
+        <table id="billboard">
+            <tr>
+                <th>#</th>
+                <th>Artist</th>
+                <th>Track</th>
+                <th>Listeners</th>                
+            </tr>
+            {% for track in billboard %}
+            <tr>
+                <td>{{ track.position }}</td>
+                <td>{{ track.track__artist_name }} </td>
+                <td>{{ track.track__title }} </td>
+                <td>{{ track.listener_count|intcomma }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No tracks are available.</p>
+        {% endif %}
+    </div>
+
+    <div id="chart_container3" style=" min-width: 400px; height: 400px; margin: 0 auto; width:900px;margin-top:100px;"></div>
+    <div id="chart_container" style=" min-width: 400px; height: 400px; margin: 0 auto; width:900px;margin-top:100px;"></div>
+    <div id="chart_container2" style="min-width: 400px; height: 400px;  margin: 0 auto; width:900px;margin-top:100px;"></div>
+
+    <img id="ee1" style="display:none" src="http://www.solsken.com/blog/wp-content/uploads/2008/09/lastfm.jpg"/>
+    <img id="ee2" style="display:none" src="http://www.solsken.com/blog/wp-content/uploads/2008/09/lastfm_graph.png"/>
+    <img id="ee3" style="display:none" src="http://seeingcomplexity.files.wordpress.com/2011/02/movies.png"/>
+
+    <a id="easter-egg" href=""><img src="/media/easter-egg.jpg"/></a>
+</div>
+
+<div id="footer">
+    <a href="http://www.jonathanmatthey.com">Jonathan Matthey</a> hacked this together.  All data and copyright belong to <a href="http://www.last.fm">last.fm</a>
+</body>
+</html>
 

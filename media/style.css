@@ -1,0 +1,83 @@
+body{
+	background-color:#E3E3E3;
+	font-family: 'Lucida Grande', Arial, Helvetica, Verdana, sans-serif;
+
+}
+
+h1{
+	font-family: 'Lucida Grande', Arial, Helvetica, Verdana, sans-serif;
+	color:#D51007;
+	font-size:1.3em;
+	margin-bottom:40px;
+}
+#wrapper{
+	/*border:1px solid #CCC;*/
+	border-top: 10px solid #ccc;
+	background-color:white;
+	width: 920px;
+	padding: 5px 20px 20px 20px;
+	margin: 0 auto;
+	-moz-box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px#ccc;
+	box-shadow: 0 0 5px #ccc;
+
+}
+
+#form1{
+	width:240px;
+	margin:0 auto;
+	font-size:0.9em;
+}
+
+#billboard
+{
+	font-size: 12px;
+	width: 480px;
+	text-align: left;
+	border-collapse: collapse;
+	margin: 30px auto;
+}
+#billboard th
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 10px 5px;
+	color: #D51007;
+
+}
+#billboard td
+{
+	padding: 7px 5px;
+	color: #666;
+	border-top: 1px solid #eee;
+}
+.oce-first
+{
+	background: #d0dafd;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+}
+#billboard tr:hover td
+{
+	color: white;
+	background: #D51007;
+}
+
+#footer{
+	font-size:0.7em;
+	color:#666;
+	margin:0 auto;
+	width:960px;
+	text-align:center;
+	padding:10px 0 50px 0 ;
+}
+#footer a{
+	color:#333;
+
+}
+
+#ee1, #ee2, #ee3 {
+	width: 900px;
+	margin:0 auto;
+
+}
