@@ -3,6 +3,7 @@ import os
 def relative_project_path(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -22,6 +23,9 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+import dj_database_url
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 CACHES = {
     'default': {
@@ -114,7 +118,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 CACHE_MIDDLEWARE_SECONDS = (
-    0
+    1800
 )
 
 ROOT_URLCONF = 'Top10Lastfm.urls'
