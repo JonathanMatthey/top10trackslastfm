@@ -1,17 +1,15 @@
 from toptracks.models import Track, Rank<br/>
-
-        {% if alltracks %}
+<!--         {% if alltracks %}
             {% for t in alltracks %}
                 t = Track(artist_name="{{t.artist_name}}",title="{{t.title}}") <br/>
                 t.save()<br/>
             {% endfor %}
         {% else %}
             <p>No tracks are available.</p>
-        {% endif %}
+        {% endif %} -->
         {% if allranks %}
             {% for r in allranks %}
-                r = Rank(position="{{r.position}}",year="{{r.year}}",week="{{r.week}}",listener_count="{{r.listener_count}}",track=Track.objects.get(id={{r.track__id}})) <br/>
-                r.save()<br/>
+                r = Rank.objects.get_or_create(position="{{r.position}}",year="{{r.year}}",week="{{r.week}}",listener_count="{{r.listener_count}}",track= Track.objects.get_or_create(artist_name="{{r.track__artist_name}}", title="{{r.track__title}}")[0]) <br/><br/><br/><br/><br/><br/>
             {% endfor %}
         {% else %}
             <p>No tracks are available.</p>

@@ -121,7 +121,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 CACHE_MIDDLEWARE_SECONDS = (
-    0
+    1800
 )
 
 ROOT_URLCONF = 'Top10Lastfm.urls'
