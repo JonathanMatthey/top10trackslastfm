@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'toptracks.views.index', name='index'),
     # url(r'^Top10Lastfm/', include('Top10Lastfm.foo.urls')),
+    url(r'^dbdump/$', 'toptracks.views.dbdump', name='dbdump'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

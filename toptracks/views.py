@@ -73,3 +73,17 @@ def index(request):
 
 	})
 	return HttpResponse(t.render(c))
+
+
+def dbdump(request):
+	t = loader.get_template('toptracks/dbdump.html')
+	alltracks = Track.objects.all();
+	allranks = Rank.objects.values('track__id','position','listener_count','year','week').filter(track__isnull=False);
+	
+	c = Context({
+	    'alltracks': alltracks,
+	    'allranks':allranks,
+
+	})
+	return HttpResponse(t.render(c))
+

@@ -1,5 +1,4 @@
 from django.core.management.base import BaseCommand
-# from minnpost.dockets.models import Case
 from toptracks.models import Track, Rank
 
 import requests
