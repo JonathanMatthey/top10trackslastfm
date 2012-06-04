@@ -19,7 +19,7 @@ password: asdasd
 
 ***
 
-this is a django app 1.4,
+this is a django app 1.4
 
 docs available at:
 
@@ -27,15 +27,17 @@ https://docs.djangoproject.com/en/dev/releases/1.4/
 
 clone this using:
 
-    `git clone git@github.com:manymengofishing/top10trackslastfm.git`
-    `cd top10trackslastfm`
+    git clone git@github.com:manymengofishing/top10trackslastfm.git
+    cd top10trackslastfm
 
 access shell:  
 
-    `python manage.py shell`
+    python manage.py shell
 
-sql statement generated  
-    `python manage.py sql toptracks`
+sql statements generated using
+
+    python manage.py sql toptracks
+    python manage.py sqlclear toptracks
 
 setup db:  
 
@@ -46,10 +48,12 @@ run the server:
     python manage.py runserver     
 
 
-run scraping command that runs for current week:  
+run scraping command that runs for current week: 
+
     python manage.py scrape_last_fm
 
 also there's a shell script that will scrape the last 4 months, run it using 
+
     ./scrape_last_3months.sh
 
 
