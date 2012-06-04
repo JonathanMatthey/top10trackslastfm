@@ -9,12 +9,12 @@ This is a small demo app built using django and sqlite 3 locally, deployed to he
 It scrapes lastfm top 10 tracks, stores them in a db and then spits them back in a view with basic table lookup and javascript charts:
 
 demo:  
-lastfm-analytics.herokuapp.com/?year=2012&week=22
+http://lastfm-analytics.herokuapp.com/?year=2012&week=22
 
 admin:  
-lastfm-analytics.herokuapp.com/admin
+http://lastfm-analytics.herokuapp.com/admin
 
-username: mattheyj
+username: mattheyj  
 password: asdasd
 
 ***
@@ -22,22 +22,27 @@ password: asdasd
 this is a django app 1.4,
 
 docs available at:
+
 https://docs.djangoproject.com/en/dev/releases/1.4/
 
 clone this using:
-    git clone git@github.com:manymengofishing/top10trackslastfm.git
-    cd top10trackslastfm
+
+    `git clone git@github.com:manymengofishing/top10trackslastfm.git`
+    `cd top10trackslastfm`
 
 access shell:  
-    python manage.py shell
+
+    `python manage.py shell`
 
 sql statement generated  
-    python manage.py sql toptracks 
+    `python manage.py sql toptracks`
 
 setup db:  
+
     python manage.py syncdb
 
 run the server:  
+
     python manage.py runserver     
 
 
