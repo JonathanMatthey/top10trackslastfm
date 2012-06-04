@@ -12,7 +12,7 @@ def index(request):
 	qweek = request.GET.get('week', '')
 	if qyear and qweek:
 		print 'CACHE MISS - DB Query: Rank.objects'
-		billboard = Rank.objects.filter(year=qyear).filter(week=qweek).values('track__artist_name','track__title','position','listener_count').filter(track__isnull=False)
+		billboard = Rank.objects.filter(year=qyear).filter(week=qweek).values('track__artist_name','track__title','position','listener_count').filter(track__isnull=False).order_by('position')
 	else:
 		billboard = []
 
